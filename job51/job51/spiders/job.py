@@ -32,7 +32,7 @@ class JobSpider(scrapy.Spider):
             salary = data.xpath('.//p[@class="info"]//span[@class="location"]/text()').extract_first()  # 岗位名称
             recruitment_time = data.xpath('.//p[@class="info"]//span[@class="time"]/text()').extract_first()  # 岗位名称
             order_data = data.xpath('.//p[@class="order"]//text()').extract()  # 岗位名称
-            order = list(map(lambda x: re.sub(r'\s', '', x), order_data))  # ['学历要求：高中', '|', '工作经验：无工作', '|', '公司性质：民营公司', '|', '公司规模：50-150人']
+            order = list(map(lambda x: re.sub(r'\s', '', x), order_data))  
             school = order[0].split(r'：')[1]
             year = order[2].split(r'：')[1]
             company_type = order[4].split(r'：')[1]
