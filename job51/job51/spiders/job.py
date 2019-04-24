@@ -49,17 +49,6 @@ class JobSpider(scrapy.Spider):
             item['company_type'] = company_type
             item['company_size'] = company_size
             yield item
-            print('大行业：', big_industry)
-            print('岗位详情页面地址：', job_url)
-            print('岗位名称：', job_title)
-            print('公司名称：', company_title)
-            print('公司地址：', address)
-            print('薪资：', salary)
-            print('招聘时间：', recruitment_time)
-            print('学历要求：', school)
-            print('工作年限：', year)
-            print('公司性质：', company_type)
-            print('公司规模：', company_size)
             print('------------'*10)
         next_page = response.xpath('//div[@id="cppageno"]/ul/li[@class="bk"][2]/a/@href').extract_first()  # 翻页
         sicon = response.xpath('//a[@class="sq sicon Dm"]')  # 有内容的网页才有会的节点
